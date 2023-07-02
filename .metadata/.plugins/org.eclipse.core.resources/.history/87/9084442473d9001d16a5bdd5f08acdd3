@@ -1,0 +1,52 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   7 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 1.0              7 April, 2023               Mohammed Akram
+***************************************************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+
+#include <util/delay.h>
+#include  "../HAL/LCD/LCD_interface.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/TIMER/TIMER_interface.h"
+#include  "../HAL/LCD/LCD_interface.h"
+
+void ICU_HW(void);
+
+volatile u16 App_u16Reading1;
+volatile u16 App_u16Reading2;
+volatile u16 App_u16Reading3;
+volatile u16 App_u16OnTicks = 0;
+volatile u16 App_u16PeriodTicks = 0;
+
+u32 main (void)
+{
+	DIO_voidSetPinDirection(DIO_PORTB,PIN3,OUTPUT);
+	DIO_voidSetPinDirection(DIO_PORTD,PIN6,INPUT);
+
+	LCD_voidInit();
+
+	TIMER0_voidSetOCMatchValue(50);
+	TIMER0_voidInit();
+	TIMER0_VoidSetModeForFastmode(FAST_SET_ON_TOP);
+
+
+
+
+	while(1)
+	{
+
+
+
+
+
+
+	}
+}

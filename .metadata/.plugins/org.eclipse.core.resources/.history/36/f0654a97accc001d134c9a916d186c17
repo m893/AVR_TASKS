@@ -1,0 +1,62 @@
+/*
+
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Dell
+ */
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include <util/delay.h>
+#include "../HAL/LCD/LCD_interface.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#define  F_CPU 8000000UL
+
+
+u32 main (void)
+{
+	LCD_voidInit();
+	u8 customChar[] = {
+					0b00100,
+					  0b01110,
+					  0b00100,
+					  0b00100,
+					  0b01110,
+					  0b10101,
+					  0b00100,
+					  0b00000
+					};
+			u8 customChar2[]= {
+			  0b00100,
+			  0b01110,
+			  0b00100,
+			  0b10101,
+			  0b01110,
+			  0b00100,
+			  0b00100,
+			  0b00000
+			};
+
+			u8 arr[]="my name is";
+			u8 arr2[]=" mohammed";
+
+	while(1)
+	{
+
+			LCD_VoidSendString(arr);
+			LCD_VoidGoToXY(1,0);
+			LCD_VoidSendString(arr2);
+			LCD_VoidSendCustomCharacter(customChar,0,1,15);
+			_delay_ms(500);
+			LCD_VoidSendCustomCharacter(customChar2,0,1,15);
+			_delay_ms(500);
+			LCD_voidClearLcd();
+
+
+	}
+
+	return 0 ;
+
+}
+
+

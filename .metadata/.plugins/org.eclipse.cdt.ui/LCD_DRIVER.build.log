@@ -1,0 +1,37 @@
+13:36:31 **** Incremental Build of configuration Debug for project LCD_DRIVER ****
+make all 
+Building file: ../HAL/LCD/LCD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/LCD/LCD_program.d" -MT"HAL/LCD/LCD_program.o" -c -o "HAL/LCD/LCD_program.o" "../HAL/LCD/LCD_program.c"
+In file included from ../HAL/LCD/LCD_program.c:13:
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../HAL/LCD/LCD_program.c: In function 'LCD_voidInit':
+../HAL/LCD/LCD_program.c:27: warning: implicit declaration of function 'DIO_voidSetPortSpecificDirection'
+../HAL/LCD/LCD_program.c: In function 'LCD_voidSendData':
+../HAL/LCD/LCD_program.c:54: warning: implicit declaration of function 'DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:58: warning: implicit declaration of function 'DIO_voidSetPortSpecificValue'
+Finished building: ../HAL/LCD/LCD_program.c
+ 
+Building target: LCD_DRIVER.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LCD_DRIVER.map -mmcu=atmega32 -o "LCD_DRIVER.elf"  ./MCAL/DIO/DIO_program.o  ./HAL/LCD/LCD_program.o  ./APP/main.o   
+./HAL/LCD/LCD_program.o: In function `LCD_voidSendCustomCharacter':
+../HAL/LCD/LCD_program.c:154: undefined reference to `DIO_voidSetPortSpecificDirection'
+../HAL/LCD/LCD_program.c:158: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:158: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:163: undefined reference to `DIO_voidSetPortSpecificValue'
+../HAL/LCD/LCD_program.c:166: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:163: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:172: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:158: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:158: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:163: undefined reference to `DIO_voidSetPortSpecificValue'
+../HAL/LCD/LCD_program.c:166: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:163: undefined reference to `DIO_voidSetPinValue'
+../HAL/LCD/LCD_program.c:172: undefined reference to `DIO_voidSetPinValue'
+./APP/main.o: In function `main':
+../APP/main.c:52: undefined reference to `LCD_VoidSendCustomCharacter'
+make: *** [LCD_DRIVER.elf] Error 1
+
+13:36:34 Build Finished (took 3s.641ms)
+

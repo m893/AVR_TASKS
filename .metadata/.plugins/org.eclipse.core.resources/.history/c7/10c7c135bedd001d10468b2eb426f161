@@ -1,0 +1,40 @@
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include <util/delay.h>
+
+#include "../MCAL/DIO/DIO_interface.h"
+#include  "../MCAL/SPI/SPI_interface.h"
+#define  F_CPU 8000000UL
+
+
+u32 main (void)
+{
+	DIO_voidSetPinDirection(DIO_PORTB,PIN5,OUTPUT);
+	DIO_voidSetPinDirection(DIO_PORTB,PIN6,INPUT);
+	DIO_voidSetPinDirection(DIO_PORTB,PIN7,OUTPUT);
+	DIO_voidSetPinDirection(DIO_PORTB,PIN6,INPUT);
+	DIO_voidSetPinDirection(DIO_PORTB,PIN6,PULLUP);
+
+	SPI_VoidMAsterInit();
+
+
+		// lm port pin
+		DIO_voidSetPinDirection(DIO_PORTA,PIN0,INPUT);
+
+
+	while(1)
+	{
+
+			SPI_u8SendReceive(10);
+
+			_delay_ms(500);
+
+			SPI_u8SendReceive(20);
+
+			_delay_ms(500);
+
+	}
+
+	return 0 ;
+
+}

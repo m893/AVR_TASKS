@@ -1,0 +1,20 @@
+14:40:12 **** Incremental Build of configuration Debug for project POT_PWM_LED ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 POT_PWM_LED.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10764 bytes (32.8% Full)
+(.text + .data + .bootloader)
+
+Data:         46 bytes (2.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:40:14 Build Finished (took 1s.901ms)
+

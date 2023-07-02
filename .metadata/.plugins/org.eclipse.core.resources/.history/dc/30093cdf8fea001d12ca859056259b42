@@ -1,0 +1,43 @@
+/*********************************************
+ * Author:          Hossam M. Elzhar
+ * Creation Data:   4 APR, 2023
+ * Version:         v1.0
+ * Compiler:        GNU GCC
+ ********************************************/
+/*********************************************
+ * Version      Date                  Author                  Description
+ * v1.0         4 APR, 2023      Hossam M. Elzhar          Initial Creation
+*********************************************/
+
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_Types.h"
+
+#include "../MCAL/Timer/Timer_interface.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/GIE/GIE_interface.h"
+
+#include "POV_interface.h"
+#include "POV_private.h"
+#include "POV_config.h"
+
+
+volatile u16 POV_u16LastRotTime;
+
+//Hours Var is not the real Hours, its Incrementd every 12 minutes, not every 60 minutes.
+volatile u8 POV_u8Hours;
+volatile u8 POV_u8Minutes;
+volatile u8 POV_u8Seconds;
+
+volatile u8 POV_u8Position;
+
+//Every Team Member should write his initailizations in This Function
+void POV_voidInit(void)
+{
+
+}
+
+void POV_voidStartDisplay(void)
+{
+
+}

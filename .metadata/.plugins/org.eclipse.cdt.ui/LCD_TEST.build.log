@@ -1,0 +1,20 @@
+13:33:52 **** Incremental Build of configuration Debug for project LCD_TEST ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega2561 LCD_TEST.elf
+AVR Memory Usage
+----------------
+Device: atmega2561
+
+Program:    6662 bytes (2.5% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:33:54 Build Finished (took 1s.660ms)
+

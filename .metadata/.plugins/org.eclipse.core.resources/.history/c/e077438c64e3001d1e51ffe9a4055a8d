@@ -1,0 +1,36 @@
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include <util/delay.h>
+
+#include "../MCAL/DIO/DIO_interface.h"
+#include  "../MCAL/TWI/TWI_interface.h"
+#include "../HAL/LCD/LCD_interface.h"
+#include "../HAL/EEPROM/EEPROM_interface.h"
+
+#define  F_CPU 8000000UL
+
+
+u32 main (void)
+{	u8 data = 0 ;
+	LCD_voidInit();
+	TWI_voidMasterInit(0x20);
+	EEPROM_voidSendDataByte(0x02,5);
+	EEPROM_voidReceiveDataByte(0x02,&data);
+	//LCD_voidSendNumber(data);
+
+	while(1)
+	{
+			if(data==5)
+			{
+				DIO_VoidSetPinValue(DIO_PORTC,PIN0,HIGH);
+			}
+			else
+			{
+				DIO_VoidSetPinValue(DIO_PORTC,PIN7,HIGH);
+			}
+	}
+
+
+	return 0 ;
+
+}

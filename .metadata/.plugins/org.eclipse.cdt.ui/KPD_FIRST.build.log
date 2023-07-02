@@ -1,0 +1,28 @@
+23:47:17 **** Incremental Build of configuration Debug for project KPD_FIRST ****
+make all 
+Building file: ../HAL/KPD/KPD.program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/KPD/KPD.program.d" -MT"HAL/KPD/KPD.program.o" -c -o "HAL/KPD/KPD.program.o" "../HAL/KPD/KPD.program.c"
+In file included from ../HAL/KPD/KPD.program.c:7:
+../HAL/KPD/KPD_private.h:8:16: warning: extra tokens at end of #ifndef directive
+../HAL/KPD/KPD_private.h:9:16: warning: ISO C99 requires whitespace after the macro name
+../HAL/KPD/KPD.program.c: In function 'KPD_u8GetPressedKey':
+../HAL/KPD/KPD.program.c:51: warning: implicit declaration of function 'DIO_voidSetPinValue'
+../HAL/KPD/KPD.program.c:56: warning: implicit declaration of function 'DIO_u8GetPinValue'
+Finished building: ../HAL/KPD/KPD.program.c
+ 
+Building target: KPD_FIRST.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,KPD_FIRST.map -mmcu=atmega32 -o "KPD_FIRST.elf"  ./MCAL/DIO/DIO_program.o  ./HAL/LCD/LCD_program.o  ./HAL/KPD/KPD.program.o  ./APP/main.o  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o   
+./HAL/KPD/KPD.program.o: In function `KPD_voidInit':
+../HAL/KPD/KPD.program.c:21: undefined reference to `DIO_voidSetPinValue'
+../HAL/KPD/KPD.program.c:24: undefined reference to `DIO_u8GetPinValue'
+../HAL/KPD/KPD.program.c:34: undefined reference to `DIO_u8GetPinValue'
+../HAL/KPD/KPD.program.c:36: undefined reference to `DIO_voidSetPinValue'
+./APP/main.o: In function `main':
+../APP/main.c:19: undefined reference to `KPD_VoidIntit'
+../APP/main.c:24: undefined reference to `KPD_U8GetPressedKey'
+make: *** [KPD_FIRST.elf] Error 1
+
+23:47:17 Build Finished (took 411ms)
+

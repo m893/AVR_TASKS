@@ -1,0 +1,40 @@
+23:47:51 **** Incremental Build of configuration Debug for project timer0_test ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:16:
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:25: warning: return type of 'main' is not 'int'
+../APP/main.c: In function 'main':
+../APP/main.c:27: warning: unused variable 'y'
+../APP/main.c:27: warning: unused variable 'x'
+Finished building: ../APP/main.c
+ 
+Building target: timer0_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,timer0_test.map -mmcu=atmega32 -o "timer0_test.elf"  ./MCAL/WDT/WDT_program.o  ./MCAL/TIMER/TIMER-program.o  ./MCAL/GIE/GIE_program.o  ./MCAL/EXTERNAL_INTERRUPT/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./MCAL/ADC/ADC_program.o  ./HAL/LED/LED_program.o  ./HAL/LCD/LCD_program.o  ./HAL/KPD/KPD.program.o  ./APP/main.o   
+Finished building target: timer0_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S timer0_test.elf  >"timer0_test.lss"
+Finished building: timer0_test.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 timer0_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   11292 bytes (34.5% Full)
+(.text + .data + .bootloader)
+
+Data:         50 bytes (2.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:48:00 Build Finished (took 9s.471ms)
+

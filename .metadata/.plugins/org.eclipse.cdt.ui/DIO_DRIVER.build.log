@@ -1,0 +1,41 @@
+14:12:16 **** Incremental Build of configuration Debug for project DIO_DRIVER ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:11:
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: DIO_DRIVER.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DIO_DRIVER.map -mmcu=atmega32 -o "DIO_DRIVER.elf"  ./MCAL/DIO/DIO_program.o ./MCAL/DIO/main.o  ./APP/main.o   
+Finished building target: DIO_DRIVER.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DIO_DRIVER.elf  >"DIO_DRIVER.lss"
+Finished building: DIO_DRIVER.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex DIO_DRIVER.elf  "DIO_DRIVER.hex"
+Finished building: DIO_DRIVER.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DIO_DRIVER.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6264 bytes (19.1% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:12:17 Build Finished (took 1s.150ms)
+

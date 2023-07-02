@@ -1,0 +1,86 @@
+13:29:03 **** Build of configuration Debug for project LED_ANIMATION ****
+make all 
+Building file: ../MCAL/GIE/GIE_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/GIE/GIE_program.d" -MT"MCAL/GIE/GIE_program.o" -c -o "MCAL/GIE/GIE_program.o" "../MCAL/GIE/GIE_program.c"
+In file included from ../MCAL/GIE/GIE_program.c:5:
+../MCAL/GIE/GIE_interface.h:1:23: warning: extra tokens at end of #ifndef directive
+../MCAL/GIE/GIE_interface.h:2:23: warning: ISO C99 requires whitespace after the macro name
+In file included from ../MCAL/GIE/GIE_program.c:6:
+../MCAL/GIE/GIE_private.h:1:20: warning: extra tokens at end of #ifndef directive
+../MCAL/GIE/GIE_private.h:2:21: warning: ISO C99 requires whitespace after the macro name
+Finished building: ../MCAL/GIE/GIE_program.c
+ 
+Building file: ../MCAL/EXTERNAL_INTERRUPT/EXTI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/EXTERNAL_INTERRUPT/EXTI_program.d" -MT"MCAL/EXTERNAL_INTERRUPT/EXTI_program.o" -c -o "MCAL/EXTERNAL_INTERRUPT/EXTI_program.o" "../MCAL/EXTERNAL_INTERRUPT/EXTI_program.c"
+In file included from ../MCAL/EXTERNAL_INTERRUPT/EXTI_program.c:5:
+../MCAL/EXTERNAL_INTERRUPT/EXTI_private.h:1:22: warning: extra tokens at end of #ifndef directive
+../MCAL/EXTERNAL_INTERRUPT/EXTI_private.h:2:21: warning: ISO C99 requires whitespace after the macro name
+Finished building: ../MCAL/EXTERNAL_INTERRUPT/EXTI_program.c
+ 
+Building file: ../MCAL/DIO/DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/DIO/DIO_program.d" -MT"MCAL/DIO/DIO_program.o" -c -o "MCAL/DIO/DIO_program.o" "../MCAL/DIO/DIO_program.c"
+../MCAL/DIO/DIO_program.c: In function 'DIO_VoidGetPinValue':
+../MCAL/DIO/DIO_program.c:159: warning: control reaches end of non-void function
+../MCAL/DIO/DIO_program.c: In function 'DIO_U8GetPortValue':
+../MCAL/DIO/DIO_program.c:294: warning: control reaches end of non-void function
+Finished building: ../MCAL/DIO/DIO_program.c
+ 
+Building file: ../HAL/LCD/LCD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/LCD/LCD_program.d" -MT"HAL/LCD/LCD_program.o" -c -o "HAL/LCD/LCD_program.o" "../HAL/LCD/LCD_program.c"
+In file included from ../HAL/LCD/LCD_program.c:10:
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/LCD/LCD_program.c
+ 
+Building file: ../HAL/KPD/KPD.program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/KPD/KPD.program.d" -MT"HAL/KPD/KPD.program.o" -c -o "HAL/KPD/KPD.program.o" "../HAL/KPD/KPD.program.c"
+In file included from ../HAL/KPD/KPD.program.c:13:
+../HAL/KPD/KPD_interface.h:7:18: warning: extra tokens at end of #ifndef directive
+../HAL/KPD/KPD_interface.h:8:18: warning: ISO C99 requires whitespace after the macro name
+In file included from ../HAL/KPD/KPD.program.c:14:
+../HAL/KPD/KPD_config.h:7:15: warning: extra tokens at end of #ifndef directive
+../HAL/KPD/KPD_config.h:8:15: warning: ISO C99 requires whitespace after the macro name
+In file included from ../HAL/KPD/KPD.program.c:15:
+../HAL/KPD/KPD_private.h:8:16: warning: extra tokens at end of #ifndef directive
+../HAL/KPD/KPD_private.h:9:16: warning: ISO C99 requires whitespace after the macro name
+Finished building: ../HAL/KPD/KPD.program.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:13:
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:19: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: LED_ANIMATION.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LED_ANIMATION.map -mmcu=atmega32 -o "LED_ANIMATION.elf"  ./MCAL/GIE/GIE_program.o  ./MCAL/EXTERNAL_INTERRUPT/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./HAL/LCD/LCD_program.o  ./HAL/KPD/KPD.program.o  ./APP/main.o   
+Finished building target: LED_ANIMATION.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S LED_ANIMATION.elf  >"LED_ANIMATION.lss"
+Finished building: LED_ANIMATION.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LED_ANIMATION.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8760 bytes (26.7% Full)
+(.text + .data + .bootloader)
+
+Data:         32 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:29:16 Build Finished (took 12s.313ms)
+

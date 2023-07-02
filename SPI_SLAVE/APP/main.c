@@ -1,0 +1,51 @@
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include <util/delay.h>
+
+#include "../MCAL/DIO/DIO_interface.h"
+#include  "../MCAL/SPI/SPI_interface.h"
+#define  F_CPU 8000000UL
+
+
+u32 main (void)
+{
+	DIO_voidSetPinDirection(DIO_PORTB,PIN5,INPUT);
+	DIO_voidSetPinDirection(DIO_PORTB,PIN6,OUTPUT);
+	DIO_voidSetPinDirection(DIO_PORTB,PIN7,INPUT);
+
+
+	/*  led port */
+	DIO_voidSetPinDirection(DIO_PORTA,PIN0 ,OUTPUT);
+
+	SPI_VoidSlaveInit();
+
+	u8 data =0 ;
+
+
+	//data=SPI_u8SendReceive(255);
+
+	//_delay_ms(500);
+
+	while(1)
+	{
+		data=SPI_u8SendReceive(255);
+		if(data == 10)
+		{
+			DIO_VoidSetPinValue(DIO_PORTA,PIN0,HIGH);
+		}
+		else if (data == 20 )
+		{
+			DIO_VoidSetPinValue(DIO_PORTA,PIN0,LOW);
+
+		}else
+		{
+			/* no thing*/
+		}
+
+
+
+	}
+
+	return 0 ;
+
+}

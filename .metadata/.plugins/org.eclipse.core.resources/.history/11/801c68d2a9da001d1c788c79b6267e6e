@@ -1,0 +1,40 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   7 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 1.0              7 April, 2023               Mohammed Akram
+***************************************************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+
+#include <util/delay.h>
+#include  "../MCAL/ADC/ADC_interface.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/TIMER/TIMER_interface.h"
+
+
+u32 main (void)
+{
+	ADC_VoidInit();
+	u16 Local_u16Counter =0 ;
+	DIO_voidSetPinDirection(DIO_PORTB,PIN3,OUTPUT);
+	DIO_voidSetPinDirection(DIO_PORTA,PIN0,INPUT);
+
+	TIMER0_voidInit();
+
+	while(1)
+	{
+
+					Local_u16Counter= ADC_U8StartConversionSynchronous(PIN0);
+					DIO_VoidSetPinValue(DIO_PORTB,PIN3,Local_u16Counter);
+
+
+
+
+	}
+}

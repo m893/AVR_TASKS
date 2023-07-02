@@ -1,0 +1,37 @@
+16:23:35 **** Incremental Build of configuration Debug for project led_using_pwm ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:15:
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:21: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: led_using_pwm.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,led_using_pwm.map -mmcu=atmega32 -o "led_using_pwm.elf"  ./MCAL/TIMER/TIMER0-program.o  ./MCAL/GIE/GIE_program.o  ./MCAL/EXTERNAL_INTERRUPT/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./MCAL/ADC/ADC_program.o  ./HAL/LED/LED_program.o  ./HAL/LCD/LCD_program.o  ./HAL/KPD/KPD.program.o  ./APP/main.o   
+Finished building target: led_using_pwm.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S led_using_pwm.elf  >"led_using_pwm.lss"
+Finished building: led_using_pwm.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 led_using_pwm.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10672 bytes (32.6% Full)
+(.text + .data + .bootloader)
+
+Data:         46 bytes (2.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:23:38 Build Finished (took 2s.649ms)
+

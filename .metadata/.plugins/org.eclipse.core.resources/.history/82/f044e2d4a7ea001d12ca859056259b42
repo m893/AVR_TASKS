@@ -1,0 +1,80 @@
+/*********************************************
+ * Author:          Hossam M. Elzhar
+ * Creation Data:   4 APR, 2023
+ * Version:         v1.0
+ * Compiler:        GNU GCC
+ ********************************************/
+/*********************************************
+ * Version      Date                  Author                  Description
+ * v1.0         4 APR, 2023      Hossam M. Elzhar          Initial Creation
+*********************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_Types.h"
+
+#include "../HAL/LCD/LCD_interface.h"
+#include "../MCAL/Timer/Timer_interface.h"
+
+
+void CalculateTime(void);
+volatile u16 POV_u16LastRotTime;
+volatile u8 seconds ;
+volatile u8 minutes ;
+volatile u8 hours ;
+s32 main(void)
+{
+
+    LCD_voidInit();
+    Timer0_voidInit(TIMER0_CTC_MODE,SCALER_64,OC0_DISCONECTED);
+    	Timer0_voidSetCompareMatchValue(200);
+    	Timer0_void_OCR_InterruptEnable();
+    	Timer0_voidOCRSetCallBack(&CalculateTime);
+
+    while (1)
+    {		LCD_voidGoToXY(0,0)
+    		LCD_voidSendString("second : ")
+			LCD_voidGoToXY(0,6);
+    		LCD_voidSendNumber(seconds);
+    		LCD_voidGoToXY(0,0)
+    		LCD_voidSendString("second : ")
+    		LCD_voidGoToXY(0,6);
+    		LCD_voidSendNumber(seconds);
+
+
+    }
+    
+    return 0;
+}
+void CalculateTime(void)
+{
+	static counter ;
+	counter ++ ;
+	if(counter == 625)
+	{
+		seconds ++;
+		counter=0;
+	}
+	else
+	{}
+	if(seconds == 60)
+	{
+		minutes ++ ;
+		seconds = 0 ;
+	}
+	else{}
+	if(minutes == 60)
+	{
+		hours ++ ;
+		minutes = 0 ;
+	}
+	else
+	{}
+	if(hours == 12 )
+	{
+		hours = 0 ;
+	}
+	else {
+
+	}
+
+}

@@ -1,0 +1,35 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   7 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 1.0              7 April, 2023               Mohammed Akram
+***************************************************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+
+
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/ADC/ADC_interface.h"
+#include "../MCAL/GIE/GIE_interface.h"
+
+
+extern volatile   u16  ADC_Digital_Value ;
+
+u32 main (void)
+{
+
+	u8 value ;
+	ADC_VoidInit();
+	DIO_VoidSetPortDirection(DIO_PORTD,OUTPUT);
+	while(1)
+	{
+		value=ADC_U8StartConversionSynchronous(ADC_CHANEL_0);
+		DIO_VoidSetSpacificvalue(DIO_PORTD,value);
+
+	}
+}

@@ -1,0 +1,26 @@
+/*
+
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Dell
+ */
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../HAL/LCD/LCD_interface.h"
+
+void main (void)
+{
+	LCD_voidInit();
+	LCD_VoidSendData('m');
+	while(1)
+	{
+
+	}
+
+	return 0 ;
+
+}
+
+

@@ -1,0 +1,46 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   7 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 1.0              7 April, 2023               Mohammed Akram
+***************************************************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+
+#include <util/delay.h>
+#include "../MCAL/GIE/GIE_interface.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/TIMER/TIMER_interface.h"
+#include "../HAL/LCD/LCD_interface.h"
+
+
+u32 main (void)
+{
+		u16 x ;
+	GIE_VoidEnabledGlobalInterrupt();
+	LCD_voidInit();
+	TCNT0=0;
+	TIMER0_voidInit();
+	//TIMER0_voidEnableInterrupt(0);
+	_delay_us(300);
+	x = TCNT0 ;
+
+	LCD_VoidSendNumber(x);
+
+
+
+	while(1)
+	{
+
+
+
+
+
+
+	}
+}

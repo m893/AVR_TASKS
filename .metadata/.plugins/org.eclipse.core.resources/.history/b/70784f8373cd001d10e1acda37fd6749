@@ -1,0 +1,30 @@
+/*
+
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Dell
+ */
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include "../HAL/LCD/LCD_interface.h"
+#include "../HAL/KPD/KPD_interface.h"
+
+void main (void)
+{
+	u8 key_value ;
+	LCD_voidInit();
+	KPD_VoidIntit();
+	while(1)
+	{
+		do
+		{
+			key_value=KPD_U8GetPressedKey();
+
+		}while(key_value!=LOW);
+
+		LCD_VoidSendData(key_value);
+	}
+}
+
+

@@ -1,0 +1,94 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   7 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 1.0              7 April, 2023               Mohammed Akram
+***************************************************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+
+#include <util/delay.h>
+#include  "../MCAL/GIE/GIE_interface.h"
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../MCAL/TIMER/TIMER_interface.h"
+#include  "../HAL/LCD/LCD_interface.h"
+
+void ICU_HW(void);
+
+volatile u16 App_u16Reading1;
+volatile u16 App_u16Reading2;
+volatile u16 App_u16Reading3;
+volatile u16 App_u16OnTicks = 0;
+volatile u16 App_u16PeriodTicks = 0;
+
+u32 main (void)
+{
+	DIO_voidSetPinDirection(DIO_PORTB,PIN3,OUTPUT);
+	DIO_voidSetPinDirection(DIO_PORTD,PIN6,INPUT);
+
+	LCD_voidInit();
+
+	TIMER0_voidSetOCMatchValue(50);
+	TIMER0_voidInit();
+	TIMER0_VoidSetModeForFastmode(FAST_SET_ON_TOP);
+	ICU_VoidSetTriggerSignal(ICU_RISING_EDGE);
+	ICU_VoidSetCallBack(&ICU_HW);
+	ICU_VoidEnableIntrrupt(ICU_INTERRUPT_ENABLE);
+	GIE_VoidEnabledGlobalInterrupt();
+	TIMER1_voidInit();
+
+
+
+
+	while(1)
+	{
+		// Stuck In This Line Till The OnTicks & PeriodTicks Are Changed
+				while(App_u16OnTicks == 0 || App_u16PeriodTicks == 0);
+				LCD_VoidGoToXY(0,0);
+				LCD_VoidSendString("P.T = ");
+				LCD_VoidSendNumber(App_u16PeriodTicks);
+				LCD_VoidGoToXY(1,0);
+				LCD_VoidSendString("O.T = ");
+				LCD_VoidSendNumber(App_u16OnTicks);
+
+
+
+
+
+	}
+}
+void ICU_HW(void)
+{
+	static u8 Local_u8Counter = 0;
+		Local_u8Counter++;
+		if(Local_u8Counter == 1) // You Are In State 1
+		{
+			/*Read The ICR1 Register And Store Its Value in Reading1 Variable */
+			App_u16Reading1 = ICU_U16GetICRRegister();
+			/*Change The Trigger Signal To Be Falling Edge*/
+			ICU_VoidSetTriggerSignal(ICU_FALLING_EDGE);
+		}
+		else if(Local_u8Counter == 2) // You Are In State 2
+		{
+			/*Read The ICR1 Register And Store Its Value in Reading2 Varibale*/
+			App_u16Reading2 = ICU_U16GetICRRegister();
+			/*Calculate The On Ticks*/
+			App_u16OnTicks = App_u16Reading2 - App_u16Reading1 - 1;
+		}
+		else if(Local_u8Counter == 3) // You Are In State 3
+		{
+			/*Read The ICR1 Register And Store Its Value In Reading3 Variable*/
+			App_u16Reading3 = ICU_U16GetICRRegister();
+			/*Calculate the Period Ticks*/
+			App_u16PeriodTicks = App_u16Reading3 - App_u16Reading2 - 1;
+			/*Disbale The ICU Interrupt*/
+			ICU_VoidEnableIntrrupt(ICU_INTERRUPT_DISABLE);
+			/*Reset The Counter*/
+			Local_u8Counter = 0;
+		}
+}

@@ -1,0 +1,54 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   10 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 2.0              10 April, 2023               Mohammed Akram
+***************************************************************************/
+#ifndef TIMER_INTERFACE_H
+#define TIMER_INTERFACE_H
+
+#define NORMAL_MODE           0
+#define CTC_MODE              1
+#define FAST_PWM_MODE         2
+#define PHASE_CORRECT_MODE    3
+
+#define ICU_FALLING_EDGE       1
+#define ICU_RISING_EDGE        0
+
+#define ICU_INTERRUPT_ENABLE   1
+#define ICU_INTERRUPT_DISABLE   0
+
+
+
+#define FAST_OC0_DISCONNECTED    0
+#define FAST_SET_ON_TOP          1
+#define FAST_CLEAR_ON_TOP        2
+
+
+#define PHASE_OC0_DISCONNECTED             0
+#define PHASE_SET_OC0_ON_COMAPRE           1
+#define PHASE_CLEAR_OC0_ON_COMPARE         2
+
+
+void TIMER0_voidInit(void);
+void TIMER2_voidInit(void);
+
+TIMER1_voidInit();
+void TIMER0_voidSetPreloadValue(u8 Copy_u8Value);
+void TIMER0_voidSetOCMatchValue(u8 Copy_u8Value);
+
+void TIMER0_voidSetOVFCallBack(void(*pvNotificationFunction)(void));
+void TIMER0_voidSetOCCallBack(void(*pvNotificationFunction)(void));
+
+void TIMER0_voidEnableInterrupt(u8 Copy_u8Mode);
+void TIMER0_voidDisableInterrupt(u8 Copy_u8Mode);
+
+void TIMER0_voidSetBusyWait_OVFMode(u32 Copy_u32Time);
+void TIMER0_voidSetBusyWait_OCMode(u32 Copy_u32Time);
+
+
+#endif

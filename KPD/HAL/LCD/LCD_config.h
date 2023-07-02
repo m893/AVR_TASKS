@@ -1,0 +1,24 @@
+/*
+ *Author: Mohammed Akram 
+ *  Creation Data : 26 , March 2023
+ *   Version: V1.0
+ * Compiler :   GNU GCc   
+ */
+
+#ifndef DIO_CONFIG_H_
+#define DIO_CONFIG_H_
+ 
+#define LCD_DATA_PORT    DIO_PORTA
+
+
+#define LCD_CRTL_PORT      DIO_PORTB
+#define LCD_RW_PIN         PIN0
+#define LCD_RS_PIN         PIN1
+#define LCD_EN_PIN         PIN3
+
+
+#define LCD_INIT_MODE     EIGHT_BIT_MODE
+//#define LCD_INIT_MODE     FOUR_BIT_MODE
+
+
+#endif

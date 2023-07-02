@@ -1,0 +1,46 @@
+/***********
+ * Author :   Mohammed Akram
+ * Date  :   13 April,  2023
+ * Version :  1.0
+************/
+
+/******************************************************************************
+ * Version          Date                         Author
+ * 1.0              13 April, 2023               Mohammed Akram
+***************************************************************************/
+
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+
+#include <util/delay.h>
+
+#include "../MCAL/DIO/DIO_interface.h"
+#include "../LCD/LCD_interface.h"
+
+
+
+u32 main (void)
+{
+
+	WDT_VoidEnable();
+	DIO_voidSetPinDirection(DIO_PORTA,PIN0,OUTPUT);
+	DIO_VoidSetPinValue(DIO_PORTA,PIN0,HIGH);
+	_delay_us(500);
+	DIO_VoidSetPinValue(DIO_PORTA,PIN0,LOW);
+	_delay_us(500);
+	WDT_VoidEnable();
+	WDT_VoidSleep(WDT_TIMER_PRESCELER_1024_1S);
+	//WDT_VoidDisable();
+
+
+
+	while(1)
+	{
+
+
+
+
+
+
+	}
+}

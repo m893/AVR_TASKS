@@ -1,0 +1,15 @@
+00:35:45 **** Incremental Build of configuration Debug for project DIO ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: DIO.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DIO.map -mmcu=atmega16 -o "DIO.elf"  ./DIO_program.o ./main.o   
+d:/iti/tools/01- embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [DIO.elf] Error 1
+
+00:35:45 Build Finished (took 361ms)
+
